@@ -9,9 +9,9 @@ function showLogin() {
 }
 
 function login() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    alert(`Logged in with email: ${email}`);
+    // const email = document.getElementById('email').value;
+    // const password = document.getElementById('password').value;
+    window.location.href = "../../index.html";
 }
 
 function signup() {
