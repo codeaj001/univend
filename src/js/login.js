@@ -11,7 +11,7 @@ function showLogin() {
 function login() {
     // const email = document.getElementById('email').value;
     // const password = document.getElementById('password').value;
-    window.location.href = "../../index.html";
+    window.location.href = "../pages/dashboard.html";
 }
 
 function signup() {
