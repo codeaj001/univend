@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .profile-pic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .profile-pic label {
+            padding: 8px 15px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .profile-pic input[type="file"] {
+            display: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                justify-content: center;
+                padding: 40px;
+            }
+
+            .container {
+                max-width: 500px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile</h1>
+        <div class="profile-pic">
+            <img id="profileImage" src="../images/profile_placeholder.jpg" alt="Profile Picture">
+            <label for="profilePic">Select Image</label>
+            <input type="file" id="profilePic" accept="image/*" onchange="previewImage(event)">
+        </div>
+        <form id="profileForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="campus">Campus</label>
+            <input type="text" id="campus" placeholder="Enter your campus" required>
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
+
+            <label for="department">Department/Faculty</label>
+            <input type="text" id="department" placeholder="Enter your department/faculty" required>
+
+            <label for="uploadImage">Upload Student ID Card</label>
+            <input type="file" id="uploadImage" accept="image/*">
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <script>
+        // Preview the selected profile image
+        function previewImage(event) {
+            const profileImage = document.getElementById('profileImage');
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    profileImage.src = reader.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // You can handle form data here
+            alert("Profile saved successfully!");
+        });
+    </script>
+</body>
+</html>
