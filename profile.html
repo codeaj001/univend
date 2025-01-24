@@ -1,0 +1,258 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - UniVend</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="header-content">
+            <div class="user-info">
+                <div class="avatar-container">
+                    <img src="https://i.pravatar.cc/300?img=11" alt="Profile" class="profile-avatar">
+                    <button class="edit-avatar">
+                        <span class="material-icons-round">photo_camera</span>
+                    </button>
+                </div>
+                <h1>Alex Johnson</h1>
+                <p class="user-details">Computer Science • MIT Campus</p>
+                <div class="user-stats">
+                    <div class="stat">
+                        <span class="stat-value">4.9</span>
+                        <span class="stat-label">Rating</span>
+                        <span class="stat-icon">⭐</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">23</span>
+                        <span class="stat-label">Sales</span>
+                        <span class="stat-icon">📦</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">15</span>
+                        <span class="stat-label">Purchases</span>
+                        <span class="stat-icon">🛍️</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <button class="action-button">
+            <span class="material-icons-round">edit</span>
+            Edit Profile
+        </button>
+        <button class="action-button">
+            <span class="material-icons-round">settings</span>
+            Settings
+        </button>
+    </div>
+
+    <!-- Profile Tabs -->
+    <div class="profile-tabs">
+        <button class="tab-button active" data-tab="listings">
+            <span class="material-icons-round">grid_view</span>
+            Listings
+        </button>
+        <button class="tab-button" data-tab="reviews">
+            <span class="material-icons-round">star</span>
+            Reviews
+        </button>
+        <button class="tab-button" data-tab="transactions">
+            <span class="material-icons-round">receipt_long</span>
+            History
+        </button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+        <!-- Listings Tab -->
+        <div class="tab-pane active" id="listings">
+            <div class="section-header">
+                <h2>Active Listings</h2>
+                <button class="add-listing-button">
+                    <span class="material-icons-round">add</span>
+                    New Listing
+                </button>
+            </div>
+
+            <div class="listings-grid">
+                <!-- Active Listing -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0" alt="MacBook">
+                        <span class="listing-badge">Active</span>
+                        <button class="edit-listing">
+                            <span class="material-icons-round">more_vert</span>
+                        </button>
+                    </div>
+                    <div class="listing-content">
+                        <h3>MacBook Pro 2021</h3>
+                        <p class="price">$1,200</p>
+                        <div class="listing-stats">
+                            <span>
+                                <span class="material-icons-round">visibility</span> 245 views
+                            </span>
+                            <span>
+                                <span class="material-icons-round">favorite</span> 18 saves
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More listings... -->
+            </div>
+        </div>
+
+        <!-- Reviews Tab -->
+        <div class="tab-pane" id="reviews">
+            <div class="reviews-list">
+                <div class="review-card">
+                    <img src="https://i.pravatar.cc/150?img=3" alt="Reviewer" class="reviewer-avatar">
+                    <div class="review-content">
+                        <div class="review-header">
+                            <div>
+                                <h3>Emma Davis</h3>
+                                <div class="rating">
+                                    ⭐⭐⭐⭐⭐
+                                    <span class="review-date">2 days ago</span>
+                                </div>
+                            </div>
+                            <span class="transaction-tag">Buyer</span>
+                        </div>
+                        <p class="review-text">Great seller! The MacBook was exactly as described and Alex was very professional.</p>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0" alt="MacBook">
+                            <span>MacBook Pro 2021</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More reviews... -->
+            </div>
+        </div>
+
+        <!-- Transactions Tab -->
+        <div class="tab-pane" id="transactions">
+            <div class="transactions-list">
+                <div class="transaction-card">
+                    <div class="transaction-icon sold">
+                        <span class="material-icons-round">sell</span>
+                    </div>
+                    <div class="transaction-content">
+                        <div class="transaction-header">
+                            <h3>MacBook Pro 2021</h3>
+                            <span class="transaction-amount">+$1,200</span>
+                        </div>
+                        <p class="transaction-details">
+                            Sold to Emma Davis
+                            <span class="transaction-date">Mar 15, 2024</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="transaction-card">
+                    <div class="transaction-icon bought">
+                        <span class="material-icons-round">shopping_bag</span>
+                    </div>
+                    <div class="transaction-content">
+                        <div class="transaction-header">
+                            <h3>iPhone 13 Pro</h3>
+                            <span class="transaction-amount">-$800</span>
+                        </div>
+                        <p class="transaction-details">
+                            Bought from Mike Wilson
+                            <span class="transaction-date">Mar 10, 2024</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- More transactions... -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-item">
+            <span class="material-icons-round">home</span>
+            <span class="nav-text">Home</span>
+        </div>
+        <div class="nav-item">
+            <span class="material-icons-round">explore</span>
+            <span class="nav-text">Explore</span>
+        </div>
+        <div class="nav-item">
+            <div class="add-button">
+                <span class="material-icons-round">add</span>
+            </div>
+        </div>
+        <div class="nav-item">
+            <span class="material-icons-round">chat</span>
+            <span class="nav-text">Messages</span>
+        </div>
+        <div class="nav-item active">
+            <span class="material-icons-round">person</span>
+            <span class="nav-text">Profile</span>
+        </div>
+    </nav>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="close-modal">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="settings-list">
+                <div class="settings-item">
+                    <span class="material-icons-round">notifications</span>
+                    <span>Notifications</span>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <span class="material-icons-round">dark_mode</span>
+                    <span>Dark Mode</span>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="settings-item">
+                    <span class="material-icons-round">security</span>
+                    <span>Privacy</span>
+                    <span class="material-icons-round">chevron_right</span>
+                </div>
+                <div class="settings-item">
+                    <span class="material-icons-round">help</span>
+                    <span>Help & Support</span>
+                    <span class="material-icons-round">chevron_right</span>
+                </div>
+                <div class="settings-item danger">
+                    <span class="material-icons-round">logout</span>
+                    <span>Log Out</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+</body>
+
+</html>
