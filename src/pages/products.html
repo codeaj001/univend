@@ -8,127 +8,98 @@
 </head>
 <body>
     <header>
-        <h1>Products</h1>
-        <button class="cart-button" onclick="viewCart()">Cart &#128722;</button>
+        <h1>Logo</h1>
+        <button class="cart-button"> Cart &#128722;</button> <!--Add this: onclick="viewCart()": for testing-->
     </header>
 
     <div class="content">
         <!-- Search Section -->
         <div class="search-section">
             <input type="text" placeholder="Search products..." id="search-input">
-            <button onclick="searchProducts()">Search</button>
+            <button>Search</button> <!--onclick="searchProducts()"-->
         </div>
 
         <!-- Category 1 -->
         <div class="category">
-            <h2>Electronics</h2>
+            <h2>Smartphone</h2>
             <div class="product-list">
-                <div class="product-card" onclick="viewProduct('Phone')">
-                    <img src="../images/A_hand_is_reaching_out.png" alt="Phone">
-                    <h3>Phone</h3>
-                    <p>$500</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Phone')">Add to Cart</button>
+                <div class="product-card">
+                    <img src="../images/phone.jpg" alt="Phone">
+                    <h3>Galaxy S24 Ultra</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/A_mythical_book.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
+
+                <div class="product-card">
+                    <img src="../images/tablet.jpg" alt="Phone">
+                    <h3>Galaxy Tab A9</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/AI Referee.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
+
+                <div class="product-card">
+                    <img src="../images/s10.jpg" alt="Phone">
+                    <h3>Galaxy S10+</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/AI-powered_Decision_making.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
+
+                <div class="product-card">
+                    <img src="../images/s21.jpg" alt="Phone">
+                    <h3>Galaxy S21 Ultra</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/AI Hijabi.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
+
+                <div class="product-card">
+                    <img src="../images/note20.jpg" alt="Phone">
+                    <h3>Galaxy Note 20</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </div>
 
-
-        <div class="category">
-            <h2>Electronics</h2>
-            <div class="product-list">
-                <div class="product-card" onclick="viewProduct('Phone')">
-                    <img src="../images/AI.jpg" alt="Phone">
-                    <h3>Phone</h3>
-                    <p>$500</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Phone')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/AI_Assistants.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/Brainstorming_with_AI.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/Chef AI.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/city.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>Electronics</h2>
-            <div class="product-list">
-                <div class="product-card" onclick="viewProduct('Phone')">
-                    <img src="../images/Create_Digital_Persona.png" alt="Phone">
-                    <h3>Phone</h3>
-                    <p>$500</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Phone')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/Dream_Big_with_AI.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/effective_communication.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/Final_week.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-                <div class="product-card" onclick="viewProduct('Tablet')">
-                    <img src="../images/Man_wearing_VR.png" alt="Tablet">
-                    <h3>Tablet</h3>
-                    <p>$300</p>
-                    <button class="add-to-cart" onclick="addToCart(event, 'Tablet')">Add to Cart</button>
-                </div>
-            </div>
-        </div>
         <!-- Add more categories as needed -->
+        <div class="category">
+            <h2>Laptop</h2>
+            <div class="product-list">
+                <div class="product-card">
+                    <img src="../images/book3.jpg" alt="Phone">
+                    <h3>Samsung Book 3</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="../images/book4.jpg" alt="Phone">
+                    <h3>Samsung Book 4</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="../images/book3.jpg" alt="Phone">
+                    <h3>Samsung Book 3</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="../images/books.jpg" alt="Phone">
+                    <h3>Samsung Book S</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="../images/samsung16.jpg" alt="Phone">
+                    <h3>Samsung 16</h3>
+                    <p>$5000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="bottom-nav">
