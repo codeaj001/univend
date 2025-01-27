@@ -143,3 +143,128 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Add this to your existing profile.js file
+
+// Edit Profile Modal
+const editProfileButton = document.querySelector('.action-button:first-child');
+const editProfileModal = document.querySelector('.edit-profile-modal');
+const closeEditProfile = editProfileModal.querySelector('.close-modal');
+const saveProfileButton = document.querySelector('.save-profile');
+
+// Open Edit Profile Modal
+editProfileButton.addEventListener('click', () => {
+    editProfileModal.classList.add('active');
+});
+
+// Close Edit Profile Modal
+closeEditProfile.addEventListener('click', () => {
+    editProfileModal.classList.remove('active');
+});
+
+// Close on outside click
+editProfileModal.addEventListener('click', (e) => {
+    if (e.target === editProfileModal) {
+        editProfileModal.classList.remove('active');
+    }
+});
+
+// Handle avatar change
+const changeAvatarButton = document.querySelector('.change-avatar');
+const avatarPreview = document.getElementById('avatarPreview');
+
+changeAvatarButton.addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.click();
+
+    input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                avatarPreview.src = e.target.result;
+                // Also update the main profile avatar
+                document.querySelector('.profile-avatar').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+});
+
+// Handle form submission
+saveProfileButton.addEventListener('click', () => {
+    // Get all form values
+    const formData = {
+        name: document.querySelector('.form-group input[placeholder="Enter your full name"]').value,
+        username: document.querySelector('.form-group input[placeholder="Enter username"]').value,
+        bio: document.querySelector('.form-group textarea').value,
+        department: document.querySelector('.form-group select').value,
+        campus: document.querySelector('.form-group select:last-of-type').value,
+        email: document.querySelector('.form-group input[type="email"]').value,
+        phone: document.querySelector('.form-group input[type="tel"]').value,
+        showPhone: document.querySelector('.preference-toggle .switch input').checked,
+        emailNotifications: document.querySelector('.preference-toggle:last-child .switch input').checked
+    };
+
+    // Show loading state
+    saveProfileButton.textContent = 'Saving...';
+    saveProfileButton.disabled = true;
+
+    // Simulate API call
+    setTimeout(() => {
+        // Update UI with new values
+        document.querySelector('.user-info h1').textContent = formData.name;
+        document.querySelector('.user-details').textContent =
+            `${formData.department} • ${formData.campus}`;
+
+        // Show success message
+        const toast = document.createElement('div');
+        toast.className = 'toast-message';
+        toast.textContent = 'Profile updated successfully!';
+        document.body.appendChild(toast);
+
+        // Remove toast after 3 seconds
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+
+        // Reset button state
+        saveProfileButton.textContent = 'Save Changes';
+        saveProfileButton.disabled = false;
+
+        // Close modal
+        editProfileModal.classList.remove('active');
+    }, 1500);
+});
+
+// Add this CSS for the toast message
+const style = document.createElement('style');
+style.textContent = `
+    .toast-message {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #10B981;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        animation: slideUp 0.3s ease, slideDown 0.3s ease 2.7s;
+        z-index: 2000;
+    }
+
+    @keyframes slideUp {
+        from { transform: translate(-50%, 100%); opacity: 0; }
+        to { transform: translate(-50%, 0); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+        from { transform: translate(-50%, 0); opacity: 1; }
+        to { transform: translate(-50%, 100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
