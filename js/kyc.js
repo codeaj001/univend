@@ -1,5 +1,4 @@
-// kyc.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const forms = document.querySelectorAll('.step-form');
     const progressBar = document.querySelector('.progress-bar');
     const steps = document.querySelectorAll('.step');
@@ -66,9 +65,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Complete setup button handler
     document.querySelector('.btn-finish').addEventListener('click', () => {
-        // Add completion logic here
-        console.log('Profile setup completed!');
-        // Redirect to homepage or show success message
+        // Simulate form validation or API call completion logic here
+        const isAllStepsCompleted = true; // Replace this with actual validation logic if needed
+
+        if (isAllStepsCompleted) {
+            // Redirect to homepage.html after setup completion
+            window.location.href = 'homepage.html';
+        } else {
+            alert('Please complete all steps before finishing.'); // For debugging purposes
+        }
     });
 
     function updateProgress() {
