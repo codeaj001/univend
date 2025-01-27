@@ -1,0 +1,359 @@
+<!-- add-listing.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Listing - UniVend</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="css/add-listing.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="listing-header">
+        <button class="back-button">
+            <span class="material-icons-round">arrow_back</span>
+        </button>
+        <div class="step-indicator">
+            <div class="step-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <span class="step-text">Step 1 of 4</span>
+        </div>
+        <button class="close-button">
+            <span class="material-icons-round">close</span>
+        </button>
+    </div>
+
+    <!-- Listing Form Container -->
+    <div class="listing-container">
+        <!-- Step 1: Type Selection -->
+        <div class="listing-step active" id="stepType">
+            <h2>What are you listing?</h2>
+            <p class="step-description">Choose the type of listing you want to create</p>
+
+            <div class="type-selection">
+                <div class="type-card" data-type="product">
+                    <div class="type-icon">
+                        <span class="material-icons-round">shopping_bag</span>
+                    </div>
+                    <h3>Product</h3>
+                    <p>Sell items like textbooks, electronics, furniture, etc.</p>
+                </div>
+
+                <div class="type-card" data-type="service">
+                    <div class="type-icon">
+                        <span class="material-icons-round">handyman</span>
+                    </div>
+                    <h3>Service/Skill</h3>
+                    <p>Offer services like tutoring, design, programming, etc.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Basic Information -->
+        <div class="listing-step" id="stepInfo">
+            <h2>Basic Information</h2>
+            <p class="step-description">Tell us about what you're offering</p>
+
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" placeholder="Enter a clear, descriptive title" maxlength="100">
+                <span class="character-count">0/100</span>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select class="category-select" id="categorySelect">
+                    <option value="">Select a category</option>
+                    <!-- Product Categories -->
+                    <optgroup label="Product Categories" class="product-categories">
+                        <option value="textbooks">Textbooks</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="supplies">School Supplies</option>
+                        <option value="books">Books</option>
+                    </optgroup>
+                    <!-- Service Categories -->
+                    <optgroup label="Service Categories" class="service-categories">
+                        <option value="tutoring">Tutoring</option>
+                        <option value="programming">Programming</option>
+                        <option value="design">Design</option>
+                        <option value="music">Music Lessons</option>
+                        <option value="photography">Photography</option>
+                        <option value="writing">Writing & Editing</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Price</label>
+                <div class="price-input">
+                    <span class="currency">$</span>
+                    <input type="number" placeholder="0.00" step="0.01">
+                    <div class="price-type">
+                        <select id="priceType">
+                            <option value="fixed">Fixed Price</option>
+                            <option value="negotiable">Negotiable</option>
+                            <option value="hourly">Per Hour</option>
+                            <option value="free">Free</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Condition</label>
+                <div class="condition-buttons">
+                    <button class="condition-btn" data-condition="new">New</button>
+                    <button class="condition-btn" data-condition="like-new">Like New</button>
+                    <button class="condition-btn" data-condition="good">Good</button>
+                    <button class="condition-btn" data-condition="fair">Fair</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Media & Description -->
+        <div class="listing-step" id="stepMedia">
+            <h2>Media & Description</h2>
+            <p class="step-description">Add photos and describe your listing</p>
+
+            <div class="media-upload">
+                <div class="upload-grid">
+                    <div class="upload-box main">
+                        <input type="file" accept="image/*" hidden>
+                        <span class="material-icons-round">add_photo_alternate</span>
+                        <span>Add Cover Photo</span>
+                    </div>
+                    <div class="upload-box">
+                        <input type="file" accept="image/*" hidden>
+                        <span class="material-icons-round">add</span>
+                    </div>
+                    <div class="upload-box">
+                        <input type="file" accept="image/*" hidden>
+                        <span class="material-icons-round">add</span>
+                    </div>
+                    <div class="upload-box">
+                        <input type="file" accept="image/*" hidden>
+                        <span class="material-icons-round">add</span>
+                    </div>
+                </div>
+                <p class="upload-tip">First image will be the cover photo. Drag to reorder.</p>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea placeholder="Describe your listing in detail..." rows="4" maxlength="1000"></textarea>
+                <span class="character-count">0/1000</span>
+            </div>
+
+            <!-- Tags Input -->
+            <div class="form-group">
+                <label>Tags</label>
+                <div class="tags-input">
+                    <div class="tags-container"></div>
+                    <input type="text" placeholder="Add tags (press Enter)">
+                </div>
+                <p class="input-tip">Add relevant tags to help people find your listing</p>
+            </div>
+        </div>
+
+        <!-- Step 4: Location & Availability -->
+        <div class="listing-step" id="stepLocation">
+            <h2>Location & Availability</h2>
+            <p class="step-description">Set where and when you're available</p>
+
+            <div class="form-group">
+                <label>Location</label>
+                <div class="location-picker">
+                    <div class="location-map" id="locationMap"></div>
+                    <div class="location-search">
+                        <span class="material-icons-round">location_on</span>
+                        <input type="text" placeholder="Search location or drop pin">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Meeting Preference</label>
+                <div class="meeting-options">
+                    <label class="meeting-option">
+                        <input type="checkbox" checked>
+                        <span>In-person</span>
+                    </label>
+                    <label class="meeting-option">
+                        <input type="checkbox">
+                        <span>Virtual</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Availability</label>
+                <div class="availability-picker">
+                    <div class="availability-header">
+                        <button class="day-selector">
+                            <span class="material-icons-round">calendar_today</span>
+                            Select Days
+                        </button>
+                        <button class="time-selector">
+                            <span class="material-icons-round">schedule</span>
+                            Set Hours
+                        </button>
+                    </div>
+                    <div class="selected-availability">
+                        No availability set
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="listing-navigation">
+        <button class="nav-button secondary" id="prevStep">Back</button>
+        <button class="nav-button primary" id="nextStep">Next</button>
+    </div>
+
+    <!-- Category Modal -->
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Category</h3>
+                <button class="close-modal">
+                <span class="material-icons-round">close</span>
+            </button>
+            </div>
+            <div class="category-list">
+                <!-- Product Categories -->
+                <div class="category-group" data-type="product">
+                    <div class="category-item">
+                        <span class="material-icons-round">book</span>
+                        <span>Textbooks</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="material-icons-round">laptop</span>
+                        <span>Electronics</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="material-icons-round">chair</span>
+                        <span>Furniture</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="material-icons-round">checkroom</span>
+                        <span>Clothing</span>
+                    </div>
+                    <!-- Add more product categories as needed -->
+                </div>
+
+                <!-- Service Categories -->
+                <div class="category-group" data-type="service">
+                    <div class="category-item">
+                        <span class="material-icons-round">school</span>
+                        <span>Tutoring</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="material-icons-round">code</span>
+                        <span>Programming</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="material-icons-round">brush</span>
+                        <span>Design</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="material-icons-round">music_note</span>
+                        <span>Music Lessons</span>
+                    </div>
+                    <!-- Add more service categories as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Availability Modal -->
+    <div class="modal" id="availabilityModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Set Availability</h3>
+                <button class="close-modal">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="availability-content">
+                <div class="days-selector">
+                    <label class="day-checkbox">
+                        <input type="checkbox">
+                        <span>Monday</span>
+                    </label>
+                    <label class="day-checkbox">
+                        <input type="checkbox">
+                        <span>Tuesday</span>
+                    </label>
+                    <label class="day-checkbox">
+                        <input type="checkbox">
+                        <span>Wednesday</span>
+                    </label>
+                    <label class="day-checkbox">
+                        <input type="checkbox">
+                        <span>Thursday</span>
+                    </label>
+                    <label class="day-checkbox">
+                        <input type="checkbox">
+                        <span>Friday</span>
+                    </label>
+                    <label class="day-checkbox">
+                        <input type="checkbox">
+                        <span>Saturday</span>
+                    </label>
+                    <label class="day-checkbox">
+                        <input type="checkbox">
+                        <span>Sunday</span>
+                    </label>
+                </div>
+                <div class="time-selector">
+                    <div class="time-range">
+                        <label>From</label>
+                        <input type="time" value="09:00">
+                    </div>
+                    <div class="time-range">
+                        <label>To</label>
+                        <input type="time" value="17:00">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="save-availability">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Preview Listing</h3>
+                <button class="close-modal">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="preview-content">
+                <!-- Preview content will be dynamically populated -->
+            </div>
+            <div class="modal-footer">
+                <button class="secondary">Edit</button>
+                <button class="primary">Publish Listing</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="js/add-listing.js"></script>
+</body>
+
+</html>
