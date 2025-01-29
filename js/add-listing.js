@@ -386,6 +386,93 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
 
+        // Add this inside the showPreview function, after setting up the publish button
+    // Handle edit button
+    previewModal.querySelector('.secondary').addEventListener('click', () => {
+        // Close the preview modal
+        previewModal.classList.remove('active');
+        
+        // Reset to first step
+        currentStep = 1;
+        updateUI();
+        
+        // Populate form fields with existing data
+        populateFormFields();
+    });
+
+    // Add this function to handle populating the form fields
+    function populateFormFields() {
+        // Select listing type
+        typeCards.forEach(card => {
+            if (card.dataset.type === listingData.type) {
+                card.click();
+            }
+        });
+        
+        // Basic Info
+        document.querySelector('input[placeholder="Enter a clear, descriptive title"]').value = listingData.title;
+        document.querySelector('.price-input input[type="number"]').value = listingData.price;
+        
+        // Category
+        if (listingData.category) {
+            categorySelect.value = listingData.category;
+        }
+        
+        // Condition
+        if (listingData.condition) {
+            conditionButtons.forEach(button => {
+                if (button.dataset.condition === listingData.condition) {
+                    button.click();
+                }
+            });
+        }
+        
+        // Description
+        document.querySelector('textarea').value = listingData.description;
+        
+        // Tags
+        tagsContainer.innerHTML = '';
+        listingData.tags.forEach(tag => addTag(tag));
+        
+        // Images
+        uploadBoxes.forEach((box, index) => {
+            if (listingData.images[index]) {
+                box.classList.add('has-image');
+                box.innerHTML = `
+                    <img src="${listingData.images[index]}" alt="Uploaded image">
+                    <button class="remove-image">
+                        <span class="material-icons-round">close</span>
+                    </button>
+                `;
+            } else {
+                resetUploadBox(box);
+            }
+        });
+        
+        // Location
+        if (listingData.location) {
+            const position = new google.maps.LatLng(listingData.location.lat, listingData.location.lng);
+            map.setCenter(position);
+            marker.setPosition(position);
+            updateLocationInput(position);
+        }
+        
+        // Availability
+        if (listingData.availability.days.length > 0) {
+            document.querySelectorAll('.day-checkbox input').forEach(checkbox => {
+                const day = checkbox.closest('.day-checkbox').querySelector('span').textContent;
+                checkbox.checked = listingData.availability.days.includes(day);
+            });
+            
+            document.querySelector('.time-range input[type="time"]:first-of-type').value = 
+                listingData.availability.timeFrom;
+            document.querySelector('.time-range input[type="time"]:last-of-type').value = 
+                listingData.availability.timeTo;
+                
+            updateAvailabilityDisplay();
+        }
+    }
+
         previewModal.classList.add('active');
 
         // Handle publish button
