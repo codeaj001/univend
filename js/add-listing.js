@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Initialize UI elements
             const typeCards = document.querySelectorAll('.type-card');
             const nextButton = document.getElementById('nextStep');
-            const prevButton = document.getElementById('prevButton');
+            const prevButton = document.getElementById('prevStep');
             const stepDots = document.querySelectorAll('.dot');
             const stepText = document.querySelector('.step-text');
 
