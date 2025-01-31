@@ -133,6 +133,7 @@ body {
     padding: 0 1rem;
     gap: 1rem;
     border-bottom: 1px solid var(--background-color);
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
 .tab-button {
@@ -145,6 +146,7 @@ body {
     gap: 0.5rem;
     font-weight: 500;
     position: relative;
+    white-space: nowrap; /* Prevent text from breaking */
 }
 
 .tab-button.active {
@@ -159,6 +161,17 @@ body {
     right: 0;
     height: 2px;
     background: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .profile-tabs {
+        justify-content: center; /* Center align items on small screens */
+    }
+
+    .tab-button {
+        width: 100%; /* Make each button take full width */
+        text-align: center; /* Center the text inside the buttons */
+    }
 }
 
 
