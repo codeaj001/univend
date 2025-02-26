@@ -1,0 +1,142 @@
+<!-- product-detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - UniVend</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="css/product-detail.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <button class="back-button">
+            <span class="material-icons-round">arrow_back</span>
+        </button>
+        <button class="share-button">
+            <span class="material-icons-round">share</span>
+        </button>
+    </div>
+
+    <!-- Product Images Slider -->
+    <div class="image-slider">
+        <div class="slider-container">
+            <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0" alt="MacBook Pro" class="active">
+            <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef" alt="MacBook Pro Side">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="MacBook Pro Detail">
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info">
+        <div class="main-info">
+            <h1>MacBook Pro 2021</h1>
+            <div class="price-tag">$1,200</div>
+        </div>
+
+        <div class="seller-info">
+            <img src="https://i.pravatar.cc/150?img=12" alt="Seller" class="seller-avatar">
+            <div class="seller-details">
+                <h3>Alex Johnson</h3>
+                <p>Computer Science • 4.9 ⭐</p>
+            </div>
+            <button class="follow-button">Follow</button>
+        </div>
+
+        <div class="product-details">
+            <h2>Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <span class="material-icons-round">schedule</span>
+                    <div class="detail-info">
+                        <p class="label">Listed</p>
+                        <p class="value">2 days ago</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="material-icons-round">location_on</span>
+                    <div class="detail-info">
+                        <p class="label">Location</p>
+                        <p class="value">Tech Building</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="material-icons-round">inventory_2</span>
+                    <div class="detail-info">
+                        <p class="label">Condition</p>
+                        <p class="value">Like New</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="material-icons-round">category</span>
+                    <div class="detail-info">
+                        <p class="label">Category</p>
+                        <p class="value">Electronics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Description</h2>
+            <p>M1 Pro chip MacBook Pro 2021 in perfect condition. Barely used, comes with original charger and box. 16GB RAM, 512GB SSD. Battery cycle count: 56.</p>
+            <div class="specs-list">
+                <span class="spec-tag">16GB RAM</span>
+                <span class="spec-tag">512GB SSD</span>
+                <span class="spec-tag">M1 Pro</span>
+                <span class="spec-tag">Space Gray</span>
+            </div>
+        </div>
+
+        <!-- Safety Tips -->
+        <div class="safety-tips">
+            <div class="safety-header">
+                <span class="material-icons-round">security</span>
+                <h2>Safety Tips</h2>
+            </div>
+            <ul>
+                <li>Meet in a public place</li>
+                <li>Don't pay in advance</li>
+                <li>Check the item before paying</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="bottom-actions">
+        <button class="message-button">
+            <span class="material-icons-round">chat</span>
+            Message Seller
+        </button>
+        <button class="buy-button">
+            Buy Now
+        </button>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="report-modal" id="reportModal">
+        <div class="modal-content">
+            <h3>Report Listing</h3>
+            <div class="report-options">
+                <button class="report-option">Suspicious or spam</button>
+                <button class="report-option">Prohibited item</button>
+                <button class="report-option">Wrong category</button>
+                <button class="report-option">Other</button>
+            </div>
+            <button class="cancel-button">Cancel</button>
+        </div>
+    </div>
+
+    <script src="js/product-detail.js"></script>
+</body>
+
+</html>
