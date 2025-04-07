@@ -51,12 +51,12 @@ body {
 }
 
 .auth-form {
-    display: none;
-}
-
-.auth-form.active {
     display: block;
 }
+
+/* .auth-form.active {
+    display: block;
+} */
 
 .form-floating {
     margin-bottom: 1rem;
