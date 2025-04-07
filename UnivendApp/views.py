@@ -103,4 +103,4 @@ def logout_view(request):
     return redirect('landing_page')  # Redirect to your home page
 
 def profile(request):
-    return render(request,'UnivendApp/index.html')
+    return render(request,'UnivendApp/profile.html')
