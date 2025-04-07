@@ -26,7 +26,7 @@
                 <option value="logout" style="color:red; font-weight:bold;">Logout</option>
             </select>
         </div>
-        <a href="profile.html" class="profile-icon">
+        <a href="{% url 'profile' %}" class="profile-icon">
             <img src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}https://i.pravatar.cc/150?img=11{% endif %}" 
                  alt="Profile" class="avatar">
         </a>
@@ -168,7 +168,7 @@
             <span class="material-icons-round">chat</span>
             <span class="nav-text">Messages</span>
         </a>
-        <a href="profile.html" class="nav-item">
+        <a href="{% url 'profile' %}" class="nav-item">
             <span class="material-icons-round">person</span>
             <span class="nav-text">Profile</span>
         </a>

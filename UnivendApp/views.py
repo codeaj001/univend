@@ -10,11 +10,11 @@ from django.http import HttpResponse
     # Create your views here.
 def landing_page(request):
     if request.user.is_authenticated:
-        return redirect('homepage')
+        return redirect('home')
     else:
         return render(request,'UnivendApp/landing.html')
         
-def homepage(request):
+def home(request):
     if request.user.is_authenticated:
         user = request.user
         campus = Campus.objects.get(name = user.campus.name )
@@ -67,7 +67,7 @@ def register_user(request):
             )
             login(request, user)
             messages.success(request, 'Registration successful!')
-            return redirect('homepage')  # Redirect to your home page
+            return redirect('home')  # Redirect to your home page
         except Exception as e:
             messages.error(request, f'Registration failed: {e}')
             context = {"campuses":campuses, "departments":departments }
@@ -89,7 +89,7 @@ def login_user(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, f'Logged in as {email}!')
-                return redirect('homepage')  # Redirect to your home page
+                return redirect('home')  # Redirect to your home page
             else:
                 messages.error(request, 'Invalid email or password.')
                 return render(request, 'UnivendApp/index.html')
@@ -97,29 +97,10 @@ def login_user(request):
             return render(request, 'UnivendApp/index.html')
 
 
-
-
-# def login_view(request):
-#     if request.user.is_authenticated:
-#         return redirect('home')
-#     else:
-#         if request.method == 'POST':
-#             email = request.POST.get('loginEmail')
-#             password = request.POST.get('loginPassword')
-#             user = authenticate(request, email=email, password=password)
-            
-#             if user is not None:
-#                 login(request, user)
-#                 messages.success(request, f'Logged in as {email}!')
-#                 return redirect('homepage')  # Redirect to your home page
-#             else:
-#                 messages.error(request, 'Invalid email or password.')
-#                 return render(request, 'UnivendApp/index.html')
-#         else:
-#             return render(request, 'UnivendApp/index.html')
-
-
 def logout_view(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect('landing_page')  # Redirect to your home page
+
+def profile(request):
+    return render(request,'UnivendApp/index.html')
